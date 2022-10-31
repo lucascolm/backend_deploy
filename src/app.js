@@ -22,8 +22,8 @@ var corsOptions = {
   methods: "*",
   credentials: true,
 };
-server.use(cors(corsOptions));
-
+// server.use(cors(corsOptions));
+server.use(cors({ origin: "https://acreditaciones-mgnt.vercel.app" }));
 server.use(express.json());
 server.use("/", routes);
 
