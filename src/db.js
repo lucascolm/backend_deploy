@@ -2,16 +2,33 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DATABASE_URL } = process.env;
+// const { DATABASE_URL } = process.env;
 
-const sequelize = new Sequelize(
-  DATABASE_URL,
-  {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  }
-);
+const process = require("process");
 const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || "development";
+// const config = require(__dirname + "/../config/config.js")[env];
+const config = require(__dirname + "/config/config.js")[env];
+
+// const sequelize = new Sequelize(
+//   DATABASE_URL,
+//   {
+//     logging: false, // set to console.log to see the raw SQL queries
+//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+//   }
+// );
+let sequelize;
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+}
+// const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
