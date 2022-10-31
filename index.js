@@ -17,10 +17,10 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const config = require(__dirname + "/src/config/config.js");
 require("dotenv").config();
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const config = require(__dirname + "/src/config/config.js");
 // const port = process.env.PGPORT || 3001;
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
