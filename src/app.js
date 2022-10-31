@@ -1,4 +1,4 @@
-import cors from "cors"
+const cors =require ("cors");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
