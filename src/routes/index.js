@@ -9,6 +9,9 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+router.get("/pin",(req,res)=>{
+  res.send("maldito cors")
+})
 router.use("/invitados", invitados);
 router.use("/eventos", eventos);
 router.use("/login", login);
