@@ -16,14 +16,14 @@ server.use(cookieParser());
 server.use(morgan("dev"));
 var corsOptions = {
   origin: [
-    "https://acreditaciones-mgnt.vercel.app"
+    "https://acreditaciones-mgnt.netlify.app"
   ],
   headers: "*",
   methods: "*",
   credentials: true,
 };
 // server.use(cors(corsOptions));
-server.use(cors({ origin: "https://acreditaciones-mgnt.vercel.app" }));
+server.use(cors({ origin: "https://acreditaciones-mgnt.netlify.app" }));
 server.use(express.json());
 server.use("/", routes);
 
