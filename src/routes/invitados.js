@@ -11,18 +11,34 @@ router.post("/:id", async (req, res) => {
   try {
     let nuevaLista = lista?.map((i) => {
       return {
-        inv_id: Number(i.id),
-        list_id: i.list_id,
+        inv_id: typeof i.id === "string" ? Number(i.id) : i.id,
+        list_id:
+          typeof i.list_id !== "string" ? i.list_id.toString() : i.list_id,
         list_name: listName ? listName : "Invitados",
         first_name: i.first_name,
-        last_name: i.last_name,
-        company: i.company,
-        title: i.title,
-        email: i.email,
-        phone: i.phone,
-        dni: i.dni,
-        path: i.path,
-        properties: i.properties,
+        last_name:
+          typeof i.last_name !== "string"
+            ? i.last_name.toString()
+            : i.last_name,
+        company: !i.company ? "" : i.company,
+        title: !i.title ? "" : i.title,
+        email: !i.email ? "" : i.email,
+        phone: !i.phone
+          ? ""
+          : typeof i.phone !== "string"
+          ? i.phone.toString()
+          : i.phone,
+        dni: !i.dni ? "" : typeof i.dni !== "string" ? i.dni.toString() : i.dni,
+        path: !i.path
+          ? ""
+          : typeof i.path !== "string"
+          ? i.path.toString()
+          : i.path,
+        properties: !i.properties
+          ? ""
+          : typeof i.properties !== "string"
+          ? i.properties.toString()
+          : i.properties,
       };
     });
 
