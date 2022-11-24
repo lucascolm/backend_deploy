@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
+//sdfkhsdkjf
 const path = require("path");
 // const { DATABASE_URL } = process.env;
 
