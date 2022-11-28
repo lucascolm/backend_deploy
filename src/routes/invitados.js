@@ -12,32 +12,21 @@ router.post("/:id", async (req, res) => {
     let nuevaLista = lista?.map((i) => {
       return {
         inv_id: typeof i.id === "string" ? Number(i.id) : i.id,
-        list_id:
-          typeof i.list_id !== "string" ? i.list_id.toString() : i.list_id,
+        list_id: i.list_id ,
         list_name: listName ? listName : "Invitados",
         first_name: i.first_name,
         last_name:
-          typeof i.last_name !== "string"
-            ? i.last_name.toString()
-            : i.last_name,
+          typeof i.last_name,
         company: !i.company ? "" : i.company,
         title: !i.title ? "" : i.title,
         email: !i.email ? "" : i.email,
-        phone: !i.phone
-          ? ""
-          : typeof i.phone !== "string"
-          ? i.phone.toString()
-          : i.phone,
-        dni: !i.dni ? "" : typeof i.dni !== "string" ? i.dni.toString() : i.dni,
+        phone: i.phone,
+        dni: !i.dni ? "" : i.dni,
         path: !i.path
           ? ""
-          : typeof i.path !== "string"
-          ? i.path.toString()
           : i.path,
         properties: !i.properties
           ? ""
-          : typeof i.properties !== "string"
-          ? i.properties.toString()
           : i.properties,
       };
     });
@@ -49,6 +38,7 @@ router.post("/:id", async (req, res) => {
 
     return res.status(201).json(instancia);
   } catch (error) {
+    console.log(error.message)
     return res.status(400).send(error.message);
   }
 });
