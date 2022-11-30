@@ -15,8 +15,7 @@ router.post("/:id", async (req, res) => {
         list_id: i.list_id ,
         list_name: listName ? listName : "Invitados",
         first_name: i.first_name,
-        last_name:
-          typeof i.last_name,
+        last_name: i.last_name,
         company: !i.company ? "" : i.company,
         title: !i.title ? "" : i.title,
         email: !i.email ? "" : i.email,
