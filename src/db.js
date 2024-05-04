@@ -30,6 +30,7 @@ const config = require(__dirname + "/config/config.js")[env];
 //     config
 //   );
 // }
+console.log("DIALECTO:",config.dialect)
 const sequelize=new Sequelize(config.database, config.username, config.password,{
   host: config.host,
   dialect: config.dialect
