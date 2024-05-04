@@ -35,9 +35,7 @@ const config = require(__dirname + "/config/config.js")[env];
 //   host: config.host,
 //   dialect: 'postgres'
 // })
-const sequelize = new Sequelize(config.url,{
-  dialect:'postgres'
-})
+const sequelize = new Sequelize(config.url)
 // const basename = path.basename(__filename);
 
 const modelDefiners = [];

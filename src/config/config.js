@@ -6,7 +6,7 @@ module.exports = {
     port: port,
   },
   development: {
-    url:process.env.DATABASE_URL,
+    url:'postgresql://postgres:YLPLTIWXcsDPRtOLwFHRjswiGmfXSnNp@viaduct.proxy.rlwy.net:45310/railway',
     username: process.env.PGUSER,
     password: process.env.PGPASSWORD,
     database: process.env.PGDATABASE||"acreditaciones",
