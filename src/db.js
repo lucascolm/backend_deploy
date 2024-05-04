@@ -19,22 +19,22 @@ const config = require(__dirname + "/config/config.js")[env];
 //   }
 // );
 
-// if (config.use_env_variable) {
-//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
-// } else {
-//   sequelize=new
-//   sequelize = new Sequelize(
-//     config.database,
-//     config.username,
-//     config.password,
-//     config
-//   );
-// }
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize=new
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+}
 // console.log("DIALECTO:",config.dialect)
-const sequelize=new Sequelize(config.database, config.username, config.password,{
-  host: config.host,
-  dialect: 'postgres'
-})
+// const sequelize=new Sequelize(config.database, config.username, config.password,{
+//   host: config.host,
+//   dialect: 'postgres'
+// })
 // console.log(config.url)
 // const sequelize = new Sequelize('postgresql://postgres:YLPLTIWXcsDPRtOLwFHRjswiGmfXSnNp@viaduct.proxy.rlwy.net:45310/railway',{
 //   dialect:'postgres',})
