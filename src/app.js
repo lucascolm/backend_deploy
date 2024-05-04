@@ -10,10 +10,6 @@ require("./db.js");
 const server = express();
 server.name = "API";
 
-server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
-server.use(bodyParser.json({ limit: "50mb" }));
-server.use(cookieParser());
-server.use(morgan("dev"));
 var corsOptions = {
   origin: [
     "https://acreditaciones-mgnt.netlify.app"
@@ -22,7 +18,14 @@ var corsOptions = {
   methods: "*",
   credentials: true,
 };
-server.use(cors(corsOptions));
+server.use(cors({
+  origin: "https://acreditaciones-mgnt.netlify.app",
+  credentials: true
+}));
+server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+server.use(bodyParser.json({ limit: "50mb" }));
+server.use(cookieParser());
+server.use(morgan("dev"));
 // server.use(cors({ origin: "https://acreditaciones-mgnt.netlify.app" }));
 server.use(express.json());
 server.use("/", routes);
