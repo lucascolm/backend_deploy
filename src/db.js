@@ -18,7 +18,7 @@ const config = require(__dirname + "/config/config.js")[env];
 //     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 //   }
 // );
-let sequelize;
+
 // if (config.use_env_variable) {
 //   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 // } else {
@@ -30,7 +30,7 @@ let sequelize;
 //     config
 //   );
 // }
-sequelize=new sequelize(config.url)
+const sequelize=new Sequelize(config.url)
 // const basename = path.basename(__filename);
 
 const modelDefiners = [];
