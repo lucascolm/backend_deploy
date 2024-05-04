@@ -22,11 +22,10 @@ server.use(cors({
   origin: "https://acreditaciones-mgnt.netlify.app",
   credentials: true
 }));
-server.options('*', cors({
-  origin: "https://acreditaciones-mgnt.netlify.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+server.options('/login',(req,res)=>{
+  const origin=req.header('origin');
+  res.header('Access-Control-Allow-Origin', origin);
+});
 
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
