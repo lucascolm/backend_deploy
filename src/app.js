@@ -23,6 +23,10 @@ server.use(cors({
   credentials: true
 }));
 server.use((req, res, next) => {
+  console.log('Request Headers:', req.headers);
+  next();
+});
+server.use((req, res, next) => {
   if (req.method === 'OPTIONS') {
     res.header('Access-Control-Allow-Origin', 'https://acreditaciones-mgnt.netlify.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
