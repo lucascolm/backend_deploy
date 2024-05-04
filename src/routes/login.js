@@ -5,7 +5,7 @@ const { U_EMAIL, U_PASS } = process.env;
 const jwt = require("jsonwebtoken");
 
 router.post("/", (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://acreditaciones-mgnt.netlify.app/')
+  // res.header('Access-Control-Allow-Origin', 'https://acreditaciones-mgnt.netlify.app/')
   const { email, password } = req.body;
   console.log(email, password);
   try {

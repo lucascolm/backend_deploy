@@ -18,7 +18,22 @@ var corsOptions = {
   methods: "*",
   credentials: true,
 };
-server.use(cors());
+server.use(cors({
+  origin: "https://acreditaciones-mgnt.netlify.app",
+  credentials: true
+}));
+server.use((req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Origin', 'https://acreditaciones-mgnt.netlify.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.status(200).send();
+  } else {
+    next();
+  }
+});
+
+
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
