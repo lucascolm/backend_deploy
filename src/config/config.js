@@ -1,15 +1,15 @@
 require("dotenv").config();
-const port = process.env.PORT || 3001;
+const port = process.env.PGPORT || 3001;
 
 module.exports = {
   server: {
     port: port,
   },
   development: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: "acreditaciones",
-    host: process.env.DB_HOST,
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE||"acreditaciones",
+    host: process.env.PGHOST,
     dialect: "postgres",
   },
   test: {
