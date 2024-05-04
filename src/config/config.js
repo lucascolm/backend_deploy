@@ -9,7 +9,7 @@ module.exports = {
     url:'postgresql://postgres:YLPLTIWXcsDPRtOLwFHRjswiGmfXSnNp@viaduct.proxy.rlwy.net:45310/railway',
     username: process.env.PGUSER,
     password: process.env.PGPASSWORD,
-    database: 'acreditaciones',
+    database: process.env.PGDATABASE||'acreditaciones',
     host: process.env.PGHOST,
     dialect: "postgres",
   },
