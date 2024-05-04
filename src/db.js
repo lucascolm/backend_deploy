@@ -36,7 +36,7 @@ const config = require(__dirname + "/config/config.js")[env];
 //   dialect: 'postgres'
 // })
 console.log(config.url)
-const sequelize = new Sequelize(config.url,{
+const sequelize = new Sequelize(config.development.url,{
   dialect:'postgres',})
 // const basename = path.basename(__filename);
 
