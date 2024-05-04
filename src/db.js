@@ -30,7 +30,10 @@ const config = require(__dirname + "/config/config.js")[env];
 //     config
 //   );
 // }
-const sequelize=new Sequelize(config.url)
+const sequelize=new Sequelize(config.database, config.username, config.password,{
+  host: config.host,
+  dialect: config.dialect
+})
 // const basename = path.basename(__filename);
 
 const modelDefiners = [];
