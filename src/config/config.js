@@ -6,6 +6,7 @@ module.exports = {
     port: port,
   },
   development: {
+    url:process.env.DATABASE_URL,
     username: process.env.PGUSER,
     password: process.env.PGPASSWORD,
     database: process.env.PGDATABASE||"acreditaciones",
