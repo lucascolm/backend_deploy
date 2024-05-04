@@ -33,7 +33,7 @@ const config = require(__dirname + "/config/config.js")[env];
 console.log("DIALECTO:",config.dialect)
 const sequelize=new Sequelize(config.database, config.username, config.password,{
   host: config.host,
-  dialect: config.dialect
+  dialect: 'postgres'
 })
 // const basename = path.basename(__filename);
 
