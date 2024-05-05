@@ -12,6 +12,8 @@ module.exports = {
     database: process.env.PGDATABASE||'acreditaciones',
     host: process.env.PGHOST,
     dialect: "postgres",
+    user_login:process.env.U_EMAIL,
+    user_pass:process.env.U_PASS
   },
   test: {
     username: "root",

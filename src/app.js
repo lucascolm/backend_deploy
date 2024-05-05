@@ -18,10 +18,11 @@ var corsOptions = {
   methods: "*",
   credentials: true,
 };
-server.use(cors({
-  origin: "https://acreditaciones-mgnt.netlify.app",
-  credentials: true
-}));
+// server.use(cors({
+//   origin: "https://acreditaciones-mgnt.netlify.app",
+//   credentials: true
+// }));
+server.use(cors())
 server.options('/login',(req,res)=>{
   const origin=req.header('origin');
   res.header('Access-Control-Allow-Origin', origin);
